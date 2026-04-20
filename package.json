@@ -17,10 +17,10 @@
   "scripts": {
     "challenge": "node challenge/server.js",
     "demo":      "node demo/server.js",
-    "attack":    "node demo/attacker.js",
+    "attack":    "node examples/attacker.js",
     "shield":    "node bin/shield.js",
-    "scrape":    "node scraper/agent.js",
-    "pipeline":  "node scraper/pipeline.js"
+    "scrape":    "node examples/naive-scraper.js",
+    "pipeline":  "node examples/pipeline-attack.js"
   },
   "keywords": [
     "ai", "scraping", "defense", "security",

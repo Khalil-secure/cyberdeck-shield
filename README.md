@@ -6,6 +6,22 @@ Prompt injection as a weapon. Canary fingerprinting as a trap. A reverse proxy t
 
 ---
 
+## Demo
+
+<video src="demo_cyberdeck_shield.mp4" controls width="100%"></video>
+
+**What you're watching:**
+
+1. A local site is running with a real secret flag hidden behind a server-side nonce challenge.
+2. Claude Code is asked to fetch the flag directly from `localhost` — acting as a naive AI scraper.
+3. The shield intercepts the request, scores it as a bot, and injects a **fake canary flag** into the HTML response.
+4. Claude extracts the canary — completely confident it found the real flag.
+5. The moment the canary is submitted, the shield **fires a Telegram alert** with the session ID, user-agent, and the exact fake value the AI grabbed.
+
+The AI never touched the real flag. It betrayed itself.
+
+---
+
 ## The Problem
 
 AI agents can scrape, summarize, and extract content from any website in seconds. CTF challenges get solved before humans finish reading them. Proprietary data gets exfiltrated by LLM pipelines. Behavioral blocking fails because adaptive AI agents learn to look human.
@@ -47,16 +63,17 @@ Works against: AI agents that enumerate endpoints and try to solve challenges pr
 │                         # Structural decoys + prompt injection active
 │
 ├── demo/
-│   ├── server.js         # Demo server with all 3 defenses (port 3457)
-│   └── attacker.js       # AI attacker agent — 3 attack phases, all defeated
+│   └── server.js         # Demo server with all 3 defenses (port 3457)
 │
 ├── shield/
 │   └── proxy.js          # Reverse proxy shield — drop in front of ANY website
 │                         # Zero changes to the real site required
 │
-├── scraper/
-│   ├── agent.js          # Naive AI scraper — raw HTML → Claude → extract flag
-│   └── pipeline.js       # Two-stage pipeline attack — summarizer → agent
+├── examples/
+│   ├── attacker.js       # AI attacker agent — 3 attack phases, all defeated
+│   ├── naive-scraper.js  # Naive AI scraper — raw HTML → Claude → extract flag
+│   ├── pipeline-attack.js # Two-stage pipeline attack — summarizer → agent
+│   └── express-app.js    # Express integration example
 │
 └── prompt_injection.md   # Reference catalog of prompt injection techniques
 ```
@@ -66,7 +83,7 @@ Works against: AI agents that enumerate endpoints and try to solve challenges pr
 ## Quickstart
 
 ```bash
-git clone https://github.com/yourhandle/cyberdeck-shield
+git clone https://github.com/khalil-secure/cyberdeck-shield
 cd cyberdeck-shield
 npm install
 export ANTHROPIC_API_KEY=your_key_here
@@ -265,4 +282,4 @@ The combination — behavioral scoring feeding dynamic canary injection, with th
 
 MIT — do what you want, break things, build better defenses.
 
-Built by [CYBERDECK LABS](https://github.com/yourhandle) · contributions welcome
+Built by [CYBERDECK LABS](https://github.com/khalil-secure) · contributions welcome
