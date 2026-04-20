@@ -1,0 +1,55 @@
+{
+  "name": "cyberdeck-shield",
+  "version": "1.0.0",
+  "description": "Drop-in AI scraper defense for Express apps and any website via reverse proxy. Prompt injection, canary fingerprinting, behavioral scoring.",
+  "main": "index.js",
+  "bin": {
+    "cyberdeck-shield": "./bin/shield.js"
+  },
+  "files": [
+    "index.js",
+    "middleware.js",
+    "lib/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "challenge": "node challenge/server.js",
+    "demo":      "node demo/server.js",
+    "attack":    "node demo/attacker.js",
+    "shield":    "node bin/shield.js",
+    "scrape":    "node scraper/agent.js",
+    "pipeline":  "node scraper/pipeline.js"
+  },
+  "keywords": [
+    "ai", "scraping", "defense", "security",
+    "prompt-injection", "middleware", "proxy",
+    "ctf", "anti-scraping", "llm", "canary",
+    "express", "reverse-proxy"
+  ],
+  "author": "khalil-secure",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khalil-secure/cyberdeck-shield"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  },
+  "peerDependencies": {
+    "express": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "express": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
