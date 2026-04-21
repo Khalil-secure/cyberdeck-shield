@@ -8,7 +8,7 @@ Prompt injection as a weapon. Canary fingerprinting as a trap. A reverse proxy t
 
 ## Demo
 
-![Cyberdeck_shield demo](demo_cyberdeck_shield-ezgif.com-video-to-gif-converter.gif)
+![Cyberdeck_shield demo](demo_cyberdeck_shield-ezgif.com-video-to-gif-converter (1).gif)
 
 **What you're watching:**
 
